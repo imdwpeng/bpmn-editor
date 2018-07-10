@@ -113,7 +113,7 @@ export default class GlobalHeader extends PureComponent {
           <Tooltip title="说明文档">
             <a
               target="_blank"
-              href="https://raw.githubusercontent.com/imdwpeng/bpmn-editor/master/README.md"
+              href="https://github.com/imdwpeng/bpmn-editor/blob/master/README.md"
               rel="noopener noreferrer"
               className={styles.action}
             >
