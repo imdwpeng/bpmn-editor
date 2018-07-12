@@ -4,7 +4,6 @@
   "description": "An out-of-box UI solution for enterprise applications",
   "private": true,
   "scripts": {
-    "precommit": "npm run lint-staged",
     "start": "cross-env ESLINT=none roadhog dev",
     "start:no-proxy": "cross-env NO_PROXY=true ESLINT=none roadhog dev",
     "build": "cross-env ESLINT=none roadhog build",
@@ -73,7 +72,6 @@
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-react": "^7.0.1",
     "gh-pages": "^1.0.0",
-    "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "mockjs": "^1.0.1-beta3",
     "prettier": "1.13.5",
