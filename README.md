@@ -728,18 +728,18 @@ CustomModeler.prototype._modules = [].concat(
 
   [1]: https://github.com/bpmn-io/bpmn-js
   [2]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_1.png
-  [3]: https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes/Usage/Basic.js
+  [3]: https://github.com/imdwpeng/bpmn-editor/blob/dev/usage-basic/src/routes/Bpmn.js
   [4]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_2.png
-  [5]: https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes/Usage/Property.js
+  [5]: https://github.com/imdwpeng/bpmn-editor/blob/dev/usage-property/src/routes/Bpmn.js
   [6]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_3.png
-  [7]: https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes/Usage/Operate.js
+  [7]: https://github.com/imdwpeng/bpmn-editor/blob/dev/usage-operate/src/routes/Bpmn.js
   [8]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_4.png
   [9]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_5.png
   [10]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_6.png
-  [11]: https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes/Custom/Property.js
+  [11]: https://github.com/imdwpeng/bpmn-editor/blob/dev/custom-property/src/routes/Bpmn.js
   [12]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_7.png
-  [13]: https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes/Custom/Toolbar.js
+  [13]: https://github.com/imdwpeng/bpmn-editor/blob/dev/custom-toolbar/src/routes/Bpmn.js
   [14]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_8.png
   [15]: https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes/Custom/Menu.js
   [16]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_9.png
-  [17]: https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes/Custom/I18n.js
+  [17]: https://github.com/imdwpeng/bpmn-editor/blob/dev/i18n/src/routes/Bpmn.js
