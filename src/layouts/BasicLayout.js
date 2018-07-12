@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Icon, message } from 'antd';
+import { Layout, Icon, message, Collapse } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
 import { Redirect, Switch, routerRedux } from 'dva/router';
@@ -14,9 +14,11 @@ import SiderMenu from '../components/SiderMenu';
 import { getRoutes } from '../utils/utils';
 import Authorized from '../utils/Authorized';
 import { getMenuData } from '../common/menu';
+import styles from './BasicLayout.less';
 
 const { Content, Header, Footer } = Layout;
 const { AuthorizedRoute, check } = Authorized;
+const { Panel } = Collapse;
 
 /**
  * 根据菜单取得重定向地址.
@@ -80,6 +82,28 @@ const query = {
     minWidth: 1600,
   },
 };
+
+// 示例图片
+const imgList = {
+  '/usage/basic': ['1'],
+  '/usage/property': ['2'],
+  '/usage/operate': ['3'],
+  '/custom/property': ['4','5','6'],
+  '/custom/toolbar': ['7'],
+  '/custom/menu': ['8'],
+  '/i18n': ['9'],
+}
+
+// 源码地址
+const headerList = {
+  '/usage/basic': '/Usage/Basic.js',
+  '/usage/property': '/Usage/Property.js',
+  '/usage/operate': '/Usage/Operate.js',
+  '/custom/property': '/Custom/Property.js',
+  '/custom/toolbar': '/Custom/Toolbar.js',
+  '/custom/menu': '/Custom/Menu.js',
+  '/i18n': '/Custom/I18n.js',
+}
 
 let isMobile;
 enquireScreen(b => {
@@ -197,6 +221,20 @@ class BasicLayout extends React.PureComponent {
     }
   };
 
+  renderHeader = () => {
+    return(
+      <div>
+        <span style={{ paddingRight: 20 }}>示例</span>
+        <a 
+          target='_block'
+          href={`https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes${headerList[this.props.location.pathname]}`}
+        >
+          代码
+        </a>
+      </div>
+    )
+  }
+
   render() {
     const {
       currentUser,
@@ -210,7 +248,7 @@ class BasicLayout extends React.PureComponent {
     const { isMobile: mb } = this.state;
     const bashRedirect = this.getBaseRedirect();
     const layout = (
-      <Layout>
+      <Layout style={{ height: '100%' }}>
         <SiderMenu
           // 不带Authorized参数的情况下如果没有权限,会强制跳到403界面
           // If you do not have the Authorized parameter
@@ -222,7 +260,7 @@ class BasicLayout extends React.PureComponent {
           isMobile={mb}
           onCollapse={this.handleMenuCollapse}
         />
-        <Layout>
+        <Layout style={{ height: '100%' }}>
           <Header style={{ padding: 0 }}>
             <GlobalHeader
               currentUser={currentUser}
@@ -236,23 +274,56 @@ class BasicLayout extends React.PureComponent {
               onNoticeVisibleChange={this.handleNoticeVisibleChange}
             />
           </Header>
-          <Content style={{ margin: '24px 24px 0', height: '100%' }}>
-            <Switch>
-              {redirectData.map(item => (
-                <Redirect key={item.from} exact from={item.from} to={item.to} />
-              ))}
-              {getRoutes(match.path, routerData).map(item => (
-                <AuthorizedRoute
-                  key={item.key}
-                  path={item.path}
-                  component={item.component}
-                  exact={item.exact}
-                  authority={item.authority}
-                  redirectPath="/"
-                />
-              ))}
-              <Redirect exact from="/" to={bashRedirect} />
-            </Switch>
+          <Content className={styles.content}>
+            {
+              <Collapse>
+                <Panel 
+                  key="1" 
+                  header={this.renderHeader()} 
+                  style={{
+                    background: '#eee',
+                    borderRadius: 4,
+                    marginBottom: 24,
+                    overflow: 'hidden'
+                  }}
+                >
+                  {
+                    imgList[location.pathname] && 
+                    imgList[location.pathname].map((item) => {
+                      return (
+                        <img 
+                          key={item} 
+                          src={`https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_${item}.png`} 
+                          alt=""
+                          style={{ display: 'block', width: '100%' }}
+                        />
+                      )
+                    })
+                  }
+                </Panel>
+              </Collapse>
+            }
+
+            <hr style={{margin: '24px 0', border: '1px dashed #999'}}/>
+            
+            <div className={styles.bpmn}>
+              <Switch>
+                {redirectData.map(item => (
+                  <Redirect key={item.from} exact from={item.from} to={item.to} />
+                ))}
+                {getRoutes(match.path, routerData).map(item => (
+                  <AuthorizedRoute
+                    key={item.key}
+                    path={item.path}
+                    component={item.component}
+                    exact={item.exact}
+                    authority={item.authority}
+                    redirectPath="/"
+                  />
+                ))}
+                <Redirect exact from="/" to={bashRedirect} />
+              </Switch>
+            </div>
           </Content>
           <Footer style={{ padding: 0 }}>
             <GlobalFooter
@@ -270,7 +341,7 @@ class BasicLayout extends React.PureComponent {
     return (
       <DocumentTitle title={this.getPageTitle()}>
         <ContainerQuery query={query}>
-          {params => <div className={classNames(params)}>{layout}</div>}
+          {params => <div className={classNames(params)} style={{height: '100%'}}>{layout}</div>}
         </ContainerQuery>
       </DocumentTitle>
     );
