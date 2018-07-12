@@ -88,22 +88,11 @@ const imgList = {
   '/usage/basic': ['1'],
   '/usage/property': ['2'],
   '/usage/operate': ['3'],
-  '/custom/property': ['4','5','6'],
+  '/custom/property': ['4', '5', '6'],
   '/custom/toolbar': ['7'],
   '/custom/menu': ['8'],
   '/i18n': ['9'],
-}
-
-// 源码地址
-const headerList = {
-  '/usage/basic': '/Usage/Basic.js',
-  '/usage/property': '/Usage/Property.js',
-  '/usage/operate': '/Usage/Operate.js',
-  '/custom/property': '/Custom/Property.js',
-  '/custom/toolbar': '/Custom/Toolbar.js',
-  '/custom/menu': '/Custom/Menu.js',
-  '/i18n': '/Custom/I18n.js',
-}
+};
 
 let isMobile;
 enquireScreen(b => {
@@ -147,7 +136,7 @@ class BasicLayout extends React.PureComponent {
   getPageTitle() {
     const { routerData, location } = this.props;
     const { pathname } = location;
-    let title = 'Ant Design Pro';
+    let title = 'BPMN Editor';
     let currRouterData = null;
     // match params path
     Object.keys(routerData).forEach(key => {
@@ -222,18 +211,21 @@ class BasicLayout extends React.PureComponent {
   };
 
   renderHeader = () => {
-    return(
+    const path = this.props.location.pathname;
+    path.replace('/', '-');
+
+    return (
       <div>
         <span style={{ paddingRight: 20 }}>示例</span>
-        <a 
-          target='_block'
-          href={`https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes${headerList[this.props.location.pathname]}`}
+        <a
+          target="_block"
+          href={`https://github.com/imdwpeng/bpmn-editor/blob/dev/${path}/src/routes/Bpmn.js`}
         >
           代码
         </a>
       </div>
-    )
-  }
+    );
+  };
 
   render() {
     const {
@@ -277,35 +269,33 @@ class BasicLayout extends React.PureComponent {
           <Content className={styles.content}>
             {
               <Collapse>
-                <Panel 
-                  key="1" 
-                  header={this.renderHeader()} 
+                <Panel
+                  key="1"
+                  header={this.renderHeader()}
                   style={{
                     background: '#eee',
                     borderRadius: 4,
                     marginBottom: 24,
-                    overflow: 'hidden'
+                    overflow: 'hidden',
                   }}
                 >
-                  {
-                    imgList[location.pathname] && 
-                    imgList[location.pathname].map((item) => {
+                  {imgList[location.pathname] &&
+                    imgList[location.pathname].map(item => {
                       return (
-                        <img 
-                          key={item} 
-                          src={`https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_${item}.png`} 
+                        <img
+                          key={item}
+                          src={`https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_${item}.png`}
                           alt=""
                           style={{ display: 'block', width: '100%' }}
                         />
-                      )
-                    })
-                  }
+                      );
+                    })}
                 </Panel>
               </Collapse>
             }
 
-            <hr style={{margin: '24px 0', border: '1px dashed #999'}}/>
-            
+            <hr style={{ margin: '24px 0', border: '1px dashed #999' }} />
+
             <div className={styles.bpmn}>
               <Switch>
                 {redirectData.map(item => (
@@ -341,7 +331,11 @@ class BasicLayout extends React.PureComponent {
     return (
       <DocumentTitle title={this.getPageTitle()}>
         <ContainerQuery query={query}>
-          {params => <div className={classNames(params)} style={{height: '100%'}}>{layout}</div>}
+          {params => (
+            <div className={classNames(params)} style={{ height: '100%' }}>
+              {layout}
+            </div>
+          )}
         </ContainerQuery>
       </DocumentTitle>
     );
