@@ -742,7 +742,7 @@ CustomModeler.prototype._modules = [].concat(
   [12]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_7.png
   [13]: https://github.com/imdwpeng/bpmn-editor/blob/dev/custom-toolbar/src/routes/Bpmn.js
   [14]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_8.png
-  [15]: https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes/Custom/Menu.js
+  [15]: https://github.com/imdwpeng/bpmn-editor/blob/dev/custom-menu/src/routes/Bpmn.js
   [16]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_9.png
   [17]: https://github.com/imdwpeng/bpmn-editor/blob/dev/i18n/src/routes/Bpmn.js
   [18]: http://dwpblog.site/bpmn-editor/dist/index.html
