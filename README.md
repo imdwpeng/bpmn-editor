@@ -1,5 +1,7 @@
 # BPMN Editor
 
+[演示实例][http://dwpblog.site/bpmn-editor/dist/index.html]
+
 基于 [bpmn-js][1] ，举例展示如何在react项目中使用 bpmn-js 进行流程设计。
 
 ## 目录
