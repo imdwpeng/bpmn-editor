@@ -1,6 +1,6 @@
 # BPMN Editor
 
-[演示实例][http://dwpblog.site/bpmn-editor/dist/index.html]
+[演示实例][18]
 
 基于 [bpmn-js][1] ，举例展示如何在react项目中使用 bpmn-js 进行流程设计。
 
@@ -745,3 +745,4 @@ CustomModeler.prototype._modules = [].concat(
   [15]: https://github.com/imdwpeng/bpmn-editor/blob/master/src/routes/Custom/Menu.js
   [16]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_9.png
   [17]: https://github.com/imdwpeng/bpmn-editor/blob/dev/i18n/src/routes/Bpmn.js
+  [18]: http://dwpblog.site/bpmn-editor/dist/index.html
