@@ -266,7 +266,7 @@ class BasicLayout extends React.PureComponent {
               onNoticeVisibleChange={this.handleNoticeVisibleChange}
             />
           </Header>
-          <Content className={styles.content}>
+          <Content className={styles.content} style={{ height: `calc(100% - 93px - 64px)` }}>
             {
               <Collapse>
                 <Panel
