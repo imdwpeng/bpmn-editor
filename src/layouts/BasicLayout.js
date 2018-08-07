@@ -123,10 +123,10 @@ class BasicLayout extends React.PureComponent {
         isMobile: mobile,
       });
     });
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'user/fetchCurrent',
-    });
+    // const { dispatch } = this.props;
+    // dispatch({
+    //   type: 'user/fetchCurrent',
+    // });
   }
 
   componentWillUnmount() {
