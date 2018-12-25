@@ -24,9 +24,7 @@ import * as replaceOptions from './CustomReplaceOptions';
 /**
  * This module is an element agnostic replace menu provider for the popup menu.
  */
-export default function ReplaceMenuProvider(
-  popupMenu, modeling, moddle,
-  bpmnReplace, rules, translate) {
+export default function ReplaceMenuProvider(popupMenu, modeling, moddle, bpmnReplace, rules, translate) {
   this.popupMenu = popupMenu;
   this.modeling = modeling;
   this.moddle = moddle;
@@ -129,8 +127,8 @@ ReplaceMenuProvider.prototype.getEntries = function (element) {
     entries = filter(replaceOptions.BOUNDARY_EVENT, (entry) => {
       const { target } = entry;
 
-      if (target.eventDefinition === 'bpmn:CancelEventDefinition' &&
-         !is(businessObject.attachedToRef, 'bpmn:Transaction')) {
+      if (target.eventDefinition === 'bpmn:CancelEventDefinition'
+         && !is(businessObject.attachedToRef, 'bpmn:Transaction')) {
         return false;
       }
       const cancelActivity = target.cancelActivity !== false;
@@ -144,8 +142,8 @@ ReplaceMenuProvider.prototype.getEntries = function (element) {
   }
 
   // intermediate events
-  if (is(businessObject, 'bpmn:IntermediateCatchEvent') ||
-      is(businessObject, 'bpmn:IntermediateThrowEvent')) {
+  if (is(businessObject, 'bpmn:IntermediateCatchEvent')
+      || is(businessObject, 'bpmn:IntermediateThrowEvent')) {
     entries = filter(replaceOptions.INTERMEDIATE_EVENT, differentType);
 
     return this.createEntries(element, entries);
@@ -232,9 +230,9 @@ ReplaceMenuProvider.prototype.getHeaderEntries = function (element) {
     headerEntries = headerEntries.concat(this.getLoopEntries(element));
   }
 
-  if (is(element, 'bpmn:SubProcess') &&
-      !is(element, 'bpmn:Transaction') &&
-      !isEventSubProcess(element)) {
+  if (is(element, 'bpmn:SubProcess')
+      && !is(element, 'bpmn:Transaction')
+      && !isEventSubProcess(element)) {
     headerEntries.push(this.getAdHocEntryz(element));
   }
 
@@ -285,11 +283,11 @@ ReplaceMenuProvider.prototype.createSequenceFlowEntries = function (element, opt
   forEach(options, (entry) => {
     switch (entry.actionName) {
       case 'replace-with-default-flow':
-        if (businessObject.sourceRef.default !== businessObject &&
-            (is(businessObject.sourceRef, 'bpmn:ExclusiveGateway') ||
-             is(businessObject.sourceRef, 'bpmn:InclusiveGateway') ||
-             is(businessObject.sourceRef, 'bpmn:ComplexGateway') ||
-             is(businessObject.sourceRef, 'bpmn:Activity'))) {
+        if (businessObject.sourceRef.default !== businessObject
+            && (is(businessObject.sourceRef, 'bpmn:ExclusiveGateway')
+             || is(businessObject.sourceRef, 'bpmn:InclusiveGateway')
+             || is(businessObject.sourceRef, 'bpmn:ComplexGateway')
+             || is(businessObject.sourceRef, 'bpmn:Activity'))) {
           menuEntries.push(self.createMenuEntry(entry, element, () => {
             modeling.updateProperties(element.source, { default: businessObject });
           }));
@@ -312,11 +310,11 @@ ReplaceMenuProvider.prototype.createSequenceFlowEntries = function (element, opt
           }));
         }
         // conditional flows
-        if ((is(businessObject.sourceRef, 'bpmn:ExclusiveGateway') ||
-           is(businessObject.sourceRef, 'bpmn:InclusiveGateway') ||
-           is(businessObject.sourceRef, 'bpmn:ComplexGateway') ||
-           is(businessObject.sourceRef, 'bpmn:Activity')) &&
-           businessObject.sourceRef.default === businessObject) {
+        if ((is(businessObject.sourceRef, 'bpmn:ExclusiveGateway')
+           || is(businessObject.sourceRef, 'bpmn:InclusiveGateway')
+           || is(businessObject.sourceRef, 'bpmn:ComplexGateway')
+           || is(businessObject.sourceRef, 'bpmn:Activity'))
+           && businessObject.sourceRef.default === businessObject) {
           return menuEntries.push(self.createMenuEntry(entry, element, () => {
             modeling.updateProperties(element.source, { default: undefined });
           }));
