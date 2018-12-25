@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import BpmnModal from './BpmnModal';
-import logo from './logo.svg';
-import './App.css';
+import EditorBasic from './containers/EditorBasic';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <BpmnModal />
+      <div style={{ height: '100%', overflow: 'hidden' }}>
+        <EditorBasic />
       </div>
     );
   }

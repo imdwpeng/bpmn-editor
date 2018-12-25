@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import BpmnModeler from 'bpmn-js/lib/Modeler';
-import { diagramXML } from './newDiagram';
-import 'bpmn-js/dist/assets/diagram-js.css';
-import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
-import styles from './BpmnModal.less';
+import propertiesPanelModule from 'bpmn-js-properties-panel';
+import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda';
+import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda';
+import { diagramXML } from '../sources/xml';
+import './Common.sass';
+import styles from './Bpmn.module.scss';
 
-export default class BpmnModal extends Component {
+export default class Bpmn extends Component {
   componentDidMount() {
     this.bpmnModeler = new BpmnModeler({
       container: '#canvas',
       propertiesPanel: {
-        parent: '#properties-panel',
+        parent: '#properties-panel'
       },
+      additionalModules: [propertiesPanelModule, propertiesProviderModule],
+      moddleExtensions: {
+        camunda: camundaModdleDescriptor
+      }
     });
 
     this.renderDiagram(diagramXML);
   }
 
-  renderDiagram = xml => {
-    this.bpmnModeler.importXML(xml, err => {
+  renderDiagram = (xml) => {
+    this.bpmnModeler.importXML(xml, (err) => {
       if (err) {
         console.log('导入失败');
       } else {
