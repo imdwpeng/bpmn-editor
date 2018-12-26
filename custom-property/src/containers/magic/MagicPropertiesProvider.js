@@ -6,7 +6,6 @@ import checkboxProps from './parts/CheckboxProps';
 import selectProps from './parts/SelectProps';
 import userCustomProps from './parts/UserCustomProps';
 import DynamicSelectProps from './parts/DynamicSelectProps';
-// import CreateElementProps from './parts/CreateElementProps';
 
 function createGeneralTabGroups(element, bpmnFactory, elementRegistry, translate) {
   const generalGroup = {
@@ -20,7 +19,6 @@ function createGeneralTabGroups(element, bpmnFactory, elementRegistry, translate
   selectProps(generalGroup, element, bpmnFactory, translate);
   userCustomProps(generalGroup, element, bpmnFactory, translate);
   DynamicSelectProps(generalGroup, element, bpmnFactory, translate);
-  // CreateElementProps(generalGroup, element, bpmnFactory, translate);
 
   return [generalGroup];
 }
@@ -35,7 +33,7 @@ export default function MagicPropertiesProvider(eventBus, bpmnFactory, elementRe
     };
 
     return [gengralTab];
-  }
+  };
 }
 
 inherits(MagicPropertiesProvider, PropertiesActivator);

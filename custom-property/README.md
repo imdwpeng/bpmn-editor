@@ -1,15 +1,89 @@
-# 定制属性栏
+#Custom Property
 
-## 常规属性
-  输入框，复选框，下拉框
-![定制属性栏][1]
+------
 
-## 区分任务
-![定制属性栏][2]
+![此处输入图片的描述][1]
 
-## 动态数据
-![定制属性栏][3]
+import custom propertiesProviderModule
 
-  [1]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_4.png
-  [2]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_5.png
-  [3]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_6.png
+```js
+// import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda';
+import propertiesProviderModule from './magic';
+
+this.bpmnModeler = new BpmnModeler({
+  container: '#canvas',
+  propertiesPanel: {
+    parent: '#properties-panel'
+  },
+  additionalModules: [propertiesPanelModule, propertiesProviderModule],
+  moddleExtensions: {
+    camunda: camundaModdleDescriptor
+  }
+});
+```
+
+set custom properties of forms
+
+eg. Checkbox
+```js
+import entryFactory from 'bpmn-js-properties-panel/lib/factory/EntryFactory';
+
+export default function (group, element, bpmnFactory, translate) {
+  const checkboxGroup = entryFactory.checkbox({
+    id: 'customCheckbox',
+    label: translate('自定义复选框'),
+    modelProperty: 'camunda:customCheckbox'
+  });
+
+  group.entries.push(checkboxGroup);
+}
+```
+
+set custom properties provider
+
+```js
+import inherits from 'inherits';
+import PropertiesActivator from 'bpmn-js-properties-panel/lib/PropertiesActivator';
+
+import inputTxtProps from './parts/InputTxtProps';
+import checkboxProps from './parts/CheckboxProps';
+import selectProps from './parts/SelectProps';
+import userCustomProps from './parts/UserCustomProps';
+import DynamicSelectProps from './parts/DynamicSelectProps';
+
+function createGeneralTabGroups(element, bpmnFactory, elementRegistry, translate) {
+  const generalGroup = {
+    id: 'general',
+    label: '',
+    entries: []
+  };
+
+  inputTxtProps(generalGroup, element, bpmnFactory, translate);
+  checkboxProps(generalGroup, element, bpmnFactory, translate);
+  selectProps(generalGroup, element, bpmnFactory, translate);
+  userCustomProps(generalGroup, element, bpmnFactory, translate);
+  DynamicSelectProps(generalGroup, element, bpmnFactory, translate);
+
+  return [generalGroup];
+}
+
+export default function MagicPropertiesProvider(eventBus, bpmnFactory, elementRegistry, translate) {
+  PropertiesActivator.call(this, eventBus);
+  this.getTabs = function (element) {
+    const gengralTab = {
+      id: 'general',
+      label: '基本信息',
+      groups: createGeneralTabGroups(element, bpmnFactory, elementRegistry, translate)
+    };
+
+    return [gengralTab];
+  };
+}
+
+inherits(MagicPropertiesProvider, PropertiesActivator);
+```
+
+
+
+
+  [1]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/custom_property.png

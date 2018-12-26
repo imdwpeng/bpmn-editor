@@ -3,10 +3,10 @@ import cmdHelper from 'bpmn-js-properties-panel/lib/helper/CmdHelper';
 import { query, domify, attr } from 'min-dom/dist';
 import { forEach } from 'lodash/collection';
 
-function getData(ms){
-  return new Promise((resolve,reject)=>{
-    setTimeout(resolve,ms,{val:1});
-  })
+function getData(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms, { val: 1 });
+  });
 }
 
 function getSelectBox(node) {
@@ -21,27 +21,27 @@ function getSelect(element) {
 }
 
 function setSelect(element, value) {
-  let obj = {};
+  const obj = {};
   obj['camunda:dynamicSelect'] = value.dynamicSelect;
 
   return obj;
 }
 
-export default function (group, element, bpmnFactory, translate) {
+export default function (group, element) {
   const selectGroup = {
     id: 'dynamicSelect',
-    html: '<div class="bpp-row bpp-select">' +
-             '<label for="dynamic-select">动态获取列表</label>' +
-             '<div class="bpp-field-wrapper">' +
-               '<select id="dynamic-select" name="dynamicSelect" data-value>' +
-               '</select>' +
-               '<button class="get-data" id="addElement" data-action="addElement">获取数据</button>' +
-             '</div>' +
-          '</div>',
+    html: '<div class="bpp-row bpp-select">'
+             + '<label for="dynamic-select">动态获取列表</label>'
+             + '<div class="bpp-field-wrapper">'
+               + '<select id="dynamic-select" name="dynamicSelect" data-value>'
+               + '</select>'
+               + '<button class="get-data" id="addElement" data-action="addElement">获取数据</button>'
+             + '</div>'
+          + '</div>',
     get(el) {
       return {
         dynamicSelect: getSelect(el)
-      }
+      };
     },
     set(el, value) {
       const bo = getBusinessObject(el);
@@ -49,31 +49,31 @@ export default function (group, element, bpmnFactory, translate) {
 
       return cmdHelper.updateBusinessObject(element, bo, props);
     },
-    addElement: function (element, inputNode, event, scopeNode) {
-      getData(1000).then((value)=>{
-        console.log('调用成功');
-        
+    addElement(el, inputNode) {
+      getData(1000).then((value) => {
+        console.log('调用成功', value);
+
         const selectBox = getSelectBox(inputNode);
 
-        forEach(selectBox, function(option, i) {
-          selectBox.removeChild(selectBox.firstChild)
+        forEach(selectBox, () => {
+          selectBox.removeChild(selectBox.firstChild);
         });
 
-        for(let i=0; i < 10; i++) {
-          var optionTemplate = domify('<option value="' + i + '">' + i + '</option>');
+        for (let i = 0; i < 10; i += 1) {
+          const optionTemplate = domify(`<option value="${i}">${i}</option>`);
           selectBox.insertBefore(optionTemplate, selectBox.firstChild);
         }
 
-        forEach(selectBox, function(option) {
+        forEach(selectBox, (option) => {
           if (option.value === 0) {
             attr(option, 'selected', 'selected');
           } else {
             attr(option, 'selected', null);
           }
         });
-  
+
         return true;
-      })
+      });
     }
   };
 

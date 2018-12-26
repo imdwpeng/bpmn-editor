@@ -16,7 +16,7 @@ function getSelect(element) {
 }
 
 function setSelect(element, value) {
-  let obj = {};
+  const obj = {};
   obj['camunda:customSelect'] = value.customSelect;
 
   return obj;
@@ -31,7 +31,7 @@ export default function (group, element, bpmnFactory, translate) {
     get(el) {
       return {
         customSelect: getSelect(el)
-      }
+      };
     },
     set(el, value) {
       const bo = getBusinessObject(el);
