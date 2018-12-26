@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './index.less';
+import styles from './index.module.scss';
 
 class EditingTools extends Component {
   handleOpen = () => {
@@ -16,64 +16,64 @@ class EditingTools extends Component {
       onRedo,
       onSave,
       onDownloadXml,
-      onDownloadSvg,
+      onDownloadSvg
     } = this.props;
     return (
       <div className={styles.editingTools}>
         <ul className={styles.controlList}>
           <li className={`${styles.control} ${styles.line}`}>
             <input
-              ref={file => {
+              ref={(file) => {
                 this.file = file;
               }}
               className={styles.openFile}
               type="file"
               onChange={onOpenFIle}
             />
-            <button title="open" onClick={this.handleOpen}>
+            <button type="button" title="open" onClick={this.handleOpen}>
               <i className={styles.open} />
             </button>
           </li>
 
           <li className={styles.control}>
-            <button title="undo" onClick={onUndo}>
+            <button type="button" title="undo" onClick={onUndo}>
               <i className={styles.undo} />
             </button>
           </li>
           <li className={`${styles.control} ${styles.line}`}>
-            <button title="redo" onClick={onRedo}>
+            <button type="button" title="redo" onClick={onRedo}>
               <i className={styles.redo} />
             </button>
           </li>
 
           <li className={styles.control}>
-            <button title="reset zoom" onClick={onZoomReset}>
+            <button type="button" title="reset zoom" onClick={onZoomReset}>
               <i className={styles.zoom} />
             </button>
           </li>
           <li className={styles.control}>
-            <button title="zoom in" onClick={onZoomIn}>
+            <button type="button" title="zoom in" onClick={onZoomIn}>
               <i className={styles.zoomIn} />
             </button>
           </li>
           <li className={`${styles.control} ${styles.line}`}>
-            <button title="zoom out" onClick={onZoomOut}>
+            <button type="button" title="zoom out" onClick={onZoomOut}>
               <i className={styles.zoomOut} />
             </button>
           </li>
 
           <li className={styles.control}>
-            <button title="save" onClick={onSave}>
+            <button type="button" title="save" onClick={onSave}>
               <i className={styles.save} />
             </button>
           </li>
           <li className={styles.control}>
-            <button title="download bpmn diagram" onClick={onDownloadXml}>
+            <button type="button" title="download bpmn diagram" onClick={onDownloadXml}>
               <i className={styles.download} />
             </button>
           </li>
           <li className={styles.control}>
-            <button title="download as svg image" onClick={onDownloadSvg}>
+            <button type="button" title="download as svg image" onClick={onDownloadSvg}>
               <i className={styles.image} />
             </button>
           </li>

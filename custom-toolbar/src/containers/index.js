@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
-import { connect } from 'dva';
-import BpmnModeler from './modeler';
+import BpmnModeler from 'bpmn-js/lib/Modeler';
 import propertiesPanelModule from 'bpmn-js-properties-panel';
-import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda';
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda';
+import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda';
 import EditingTools from '../components/EditingTools';
+import { diagramXML } from '../sources/xml';
+import './Common.sass';
+import styles from './Bpmn.module.scss';
 
-import { diagramXML } from '../assets/newDiagram';
-import 'bpmn-js/dist/assets/diagram-js.css';
-import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
-import styles from './Bpmn.less';
-
-@connect()
 export default class Bpmn extends Component {
   constructor() {
     super();
     this.state = {
-      scale: 1, // 流程图比例
+      scale: 1 // 流程图比例
     };
   }
 
@@ -24,12 +20,12 @@ export default class Bpmn extends Component {
     this.bpmnModeler = new BpmnModeler({
       container: '#canvas',
       propertiesPanel: {
-        parent: '#properties-panel',
+        parent: '#properties-panel'
       },
       additionalModules: [propertiesPanelModule, propertiesProviderModule],
       moddleExtensions: {
-        camunda: camundaModdleDescriptor,
-      },
+        camunda: camundaModdleDescriptor
+      }
     });
 
     this.renderDiagram(diagramXML);
@@ -69,13 +65,13 @@ export default class Bpmn extends Component {
   };
 
   // 导入xml文件
-  handleOpenFile = e => {
+  handleOpenFile = (e) => {
     const that = this;
     const file = e.target.files[0];
     const reader = new FileReader();
     let data = '';
     reader.readAsText(file);
-    reader.onload = function(event) {
+    reader.onload = function (event) {
       data = event.target.result;
       that.renderDiagram(data, 'open');
     };
@@ -113,24 +109,21 @@ export default class Bpmn extends Component {
   };
 
   // 流程图放大缩小
-  handleZoom = radio => {
+  handleZoom = (radio) => {
     const newScale = !radio
-      ? // 不输入radio则还原
-        1.0
-      : // 最小缩小倍数
-        this.state.scale + radio <= 0.2
+      ? 1.0 // 不输入radio则还原
+      : this.state.scale + radio <= 0.2 // 最小缩小倍数
         ? 0.2
         : this.state.scale + radio;
 
     this.bpmnModeler.get('canvas').zoom(newScale);
     this.setState({
-      scale: newScale,
+      scale: newScale
     });
   };
 
-  // 解析xml文档
-  renderDiagram = xml => {
-    this.bpmnModeler.importXML(xml, err => {
+  renderDiagram = (xml) => {
+    this.bpmnModeler.importXML(xml, (err) => {
       if (err) {
         console.log('导入失败');
       } else {

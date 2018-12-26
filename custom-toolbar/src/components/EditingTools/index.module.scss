@@ -1,7 +1,7 @@
 .editingTools {
   position: absolute;
   left: 74px;
-  top: 20px;
+  top: 20px
 }
 
 .controlList {
@@ -10,14 +10,14 @@
   margin-left: 10px;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 2px;
+  border-radius: 2px
 }
 
 .control {
   position: relative;
   display: inline-block;
   padding: 6px 8px;
-  list-style-type: none;
+  list-style-type: none
 }
 
 .control button {
@@ -28,11 +28,11 @@
   line-height: 26px;
   color: #555;
   background: none;
-  border: none;
+  border: none
 }
 
 .control .openFile {
-  display: none;
+  display: none
 }
 
 .control.line:after {
@@ -42,7 +42,7 @@
   right: 0;
   transform: translateY(-50%);
   height: 16px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #ddd
 }
 
 .control button i {
@@ -50,41 +50,41 @@
   width: 16px;
   height: 16px;
   vertical-align: middle;
-  font-style: none;
+  font-style: none
 }
 
 .zoom {
-  background: url('../../assets/zoom.svg') 0 0 no-repeat;
+  background: url('../../assets/zoom.svg') 0 0 no-repeat
 }
 
 .zoomIn {
-  background: url('../../assets/zoomIn.svg') 0 0 no-repeat;
+  background: url('../../assets/zoomIn.svg') 0 0 no-repeat
 }
 
 .zoomOut {
-  background: url('../../assets/zoomOut.svg') 0 0 no-repeat;
+  background: url('../../assets/zoomOut.svg') 0 0 no-repeat
 }
 
 .undo {
-  background: url('../../assets/undo.svg') 0 0 no-repeat;
+  background: url('../../assets/undo.svg') 0 0 no-repeat
 }
 
 .redo {
-  background: url('../../assets/redo.svg') 0 0 no-repeat;
+  background: url('../../assets/redo.svg') 0 0 no-repeat
 }
 
 .save {
-  background: url('../../assets/save.svg') 0 0 no-repeat;
+  background: url('../../assets/save.svg') 0 0 no-repeat
 }
 
 .download {
-  background: url('../../assets/download.svg') 0 0 no-repeat;
+  background: url('../../assets/download.svg') 0 0 no-repeat
 }
 
 .image {
-  background: url('../../assets/image.svg') 0 0 no-repeat;
+  background: url('../../assets/image.svg') 0 0 no-repeat
 }
 
 .open {
-  background: url('../../assets/open.svg') 0 0 no-repeat;
+  background: url('../../assets/open.svg') 0 0 no-repeat
 }
