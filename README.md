@@ -1,5 +1,6 @@
 # BPMN Editor
 
+<<<<<<< HEAD
 [演示实例][18]
 
 基于 [bpmn-js][1] ，举例展示如何在react项目中使用 bpmn-js 进行流程设计。
@@ -746,3 +747,25 @@ CustomModeler.prototype._modules = [].concat(
   [16]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/bpmn_9.png
   [17]: https://github.com/imdwpeng/bpmn-editor/blob/dev/i18n/src/routes/Bpmn.js
   [18]: http://dwpblog.site/bpmn-editor/dist/index.html
+=======
+bpmn-js应用实例
+
+## 用法
+
+- [basic][1] : 基础用法
+- [custom-menu][2] : 自定义菜单项
+- [custom-palette][3] : 自定义左侧工具栏
+- [custom-property][4] : 自定义属性栏
+- [custom-toolbar][5] ： 自定义顶部导航栏
+- [i18n][6] : 国际化
+- [i18n][7] : 键盘快捷键
+
+
+  [1]: https://github.com/imdwpeng/bpmn-editor/blob/master/basic/src/containers/index.js
+  [2]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-menu/src/containers/index.js
+  [3]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-palette/src/containers/index.js
+  [4]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-property/src/containers/index.js
+  [5]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-toolbar/src/containers/index.js
+  [6]: https://github.com/imdwpeng/bpmn-editor/blob/master/i18n/src/containers/index.js
+  [7]: https://github.com/imdwpeng/bpmn-editor/blob/master/keyboard/src/containers/index.js
+>>>>>>> dev
