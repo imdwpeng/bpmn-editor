@@ -12,15 +12,15 @@ self.__precacheManifest = [
     "url": "/bpmn-editor/custom-property/build/static/js/runtime~main.d2321c43.js"
   },
   {
-    "revision": "b4c9ade309c43fb3b432",
-    "url": "/bpmn-editor/custom-property/build/static/js/main.b4c9ade3.chunk.js"
+    "revision": "f86bb26823d5971013d5",
+    "url": "/bpmn-editor/custom-property/build/static/js/main.f86bb268.chunk.js"
   },
   {
     "revision": "a8d0a111d34e11db46d9",
     "url": "/bpmn-editor/custom-property/build/static/js/1.a8d0a111.chunk.js"
   },
   {
-    "revision": "b4c9ade309c43fb3b432",
+    "revision": "f86bb26823d5971013d5",
     "url": "/bpmn-editor/custom-property/build/static/css/main.1c2fea40.chunk.css"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/bpmn-editor/custom-property/build/static/css/1.2495c365.chunk.css"
   },
   {
-    "revision": "48c5850b3d615e64956004eb287298bd",
+    "revision": "c43bef509fdb8e148bcb07349ea410a0",
     "url": "/bpmn-editor/custom-property/build/index.html"
   }
 ];
