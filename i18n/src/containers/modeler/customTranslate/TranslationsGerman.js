@@ -24,11 +24,6 @@ export default {
   // 'Ad-hoc': 'Ad-hoc',
   // 'Create {type}': '{type} erzeugen',
   // 'Task': 'Aufgabe',
-<<<<<<< HEAD:src/routes/Custom/modeler/customTranslate/TranslationsGerman.js
-  // 'Send Task': 'Senden Aufgabe',
-  // 'Receive Task': 'Empfangen Aufgabe',
-=======
->>>>>>> dev:i18n/src/containers/modeler/customTranslate/TranslationsGerman.js
   'Send Task': '发送任务',
   'Receive Task': '接收任务',
   'User Task': '用户任务',
@@ -39,10 +34,7 @@ export default {
   'Call Activity': '调用活动',
   'Sub Process (collapsed)': '子进程（收起）',
   'Sub Process (expanded)': '子进程（展开）',
-<<<<<<< HEAD:src/routes/Custom/modeler/customTranslate/TranslationsGerman.js
-=======
   // 'Intermediate Throw Event': 'Zwischenereignis',
->>>>>>> dev:i18n/src/containers/modeler/customTranslate/TranslationsGerman.js
   // 'Message Start Event': 'Nachrichten-Startereignis',
   // 'Timer Start Event': 'Zeit-Startereignis',
   // 'Conditional Start Event': 'Bedingtes Startereignis',
@@ -85,7 +77,7 @@ export default {
   // 'Signal Boundary Event': 'Angeheftetes Signal-Zwischenereignis',
   // 'Signal Boundary Event (non-interrupting)': 'Angeheftetes Signal-Zwischenereignis (nicht unterbrechend)',
   // 'Compensation Boundary Event': 'Angeheftetes Kompensations-Zwischenereignis',
-  'Exclusive Gateway': '判断',
+  'Exclusive Gateway': '判断'
   // 'Parallel Gateway': 'Paralleles Gateway',
   // 'Inclusive Gateway': 'Inklusives Gateway',
   // 'Complex Gateway': 'Komplexes Gateway',

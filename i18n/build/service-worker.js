@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/bpmn-editor/custom-property/build/precache-manifest.ba3374d9d0a52b5ccbbcac40fd6dfe5c.js"
+  "/bpmn-editor/i18n/build/precache-manifest.0bcb5df12e4671d534f5c42461f7330f.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/bpmn-editor/custom-property/build/index.html", {
+workbox.routing.registerNavigationRoute("/bpmn-editor/i18n/build/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
