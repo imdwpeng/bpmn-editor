@@ -8,16 +8,16 @@
 - [custom-property][4] : 自定义属性栏  [演示地址][11]
 - [custom-toolbar][5] ： 自定义顶部导航栏  [演示地址][12]
 - [i18n][6] : 国际化  [演示地址][13]
-- [i18n][7] : 键盘快捷键  [演示地址][14]
+- [keyboard][7] : 键盘快捷键  [演示地址][14]
 
 
-  [1]: https://github.com/imdwpeng/bpmn-editor/blob/master/basic/src
-  [2]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-menu/src
-  [3]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-palette/src
-  [4]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-property/src
-  [5]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-toolbar/src
-  [6]: https://github.com/imdwpeng/bpmn-editor/blob/master/i18n/src
-  [7]: https://github.com/imdwpeng/bpmn-editor/blob/master/keyboard/src
+  [1]: https://github.com/imdwpeng/bpmn-editor/blob/master/basic/src/containers
+  [2]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-menu/src/containers
+  [3]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-palette/src/containers
+  [4]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-property/src/containers
+  [5]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-toolbar/src/containers
+  [6]: https://github.com/imdwpeng/bpmn-editor/blob/master/i18n/src/containers
+  [7]: https://github.com/imdwpeng/bpmn-editor/blob/master/keyboard/src/containers
   [8]: https://dwpblog.site/bpmn-editor/basic/build/index.html
   [9]: https://dwpblog.site/bpmn-editor/custom-menu/build/index.html
   [10]: https://dwpblog.site/bpmn-editor/custom-palette/build/index.html
