@@ -15,10 +15,10 @@ function createGeneralTabGroups(element, bpmnFactory, elementRegistry, translate
   };
 
   inputTxtProps(generalGroup, element, bpmnFactory, translate);
-  checkboxProps(generalGroup, element, bpmnFactory, translate);
-  selectProps(generalGroup, element, bpmnFactory, translate);
-  userCustomProps(generalGroup, element, bpmnFactory, translate);
-  DynamicSelectProps(generalGroup, element, bpmnFactory, translate);
+  // checkboxProps(generalGroup, element, bpmnFactory, translate);
+  // selectProps(generalGroup, element, bpmnFactory, translate);
+  // userCustomProps(generalGroup, element, bpmnFactory, translate);
+  // DynamicSelectProps(generalGroup, element, bpmnFactory, translate);
 
   return [generalGroup];
 }
