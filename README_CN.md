@@ -7,6 +7,7 @@
 - [custom-palette][3] : 自定义左侧工具栏  [演示地址][10]
 - [custom-property][4] : 自定义属性栏  [演示地址][11]
 - [custom-toolbar][5] ： 自定义顶部导航栏  [演示地址][12]
+- [custom-elements][17] ： 自定义图源  [演示地址][18]
 - [i18n][6] : 国际化  [演示地址][13]
 - [keyboard][7] : 键盘快捷键  [演示地址][14]
 
@@ -27,3 +28,5 @@
   [14]: https://dwpblog.site/bpmn-editor/keyboard/build/index.html
   [15]: https://github.com/bpmn-io/bpmn-js-examples
   [16]: https://github.com/bpmn-io/bpmn-js
+  [17]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-elements/src/containers
+  [18]: https://dwpblog.site/bpmn-editor/custom-elements/build/index.html

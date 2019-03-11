@@ -11,8 +11,10 @@ Please visit the [official address][15] for more examples.
 - [custom-palette][3] : An example showing how to change the palettes.  [demo][10]
 - [custom-property][4] : An example showing how to extend the properties panel with custom controls.  [demo][11]
 - [custom-toolbar][5] ： Add a custom toolbar for operation(e.g. open/save/publish).   [demo][12]
+- [custom-elements][18] ： A modeler that allows you to create or change custom elements on a bpmn diagram.   [demo][19]
 - [i18n][6] : Use a custom translation module with bpmn-js.  [demo][13]
 - [keyboard][7] : Add custom keyboard shortcuts.  [demo][14]
+
 
 
   [1]: https://github.com/imdwpeng/bpmn-editor/blob/master/basic/src/containers
@@ -32,3 +34,6 @@ Please visit the [official address][15] for more examples.
   [15]: https://github.com/bpmn-io/bpmn-js-examples
   [16]: https://github.com/bpmn-io/bpmn-js
   [17]: https://github.com/imdwpeng/bpmn-editor/blob/master/README_CN.md
+  [18]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-elements/src/containers
+  [19]: https://dwpblog.site/bpmn-editor/custom-elements/build/index.html
+
