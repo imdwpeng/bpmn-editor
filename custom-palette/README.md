@@ -73,4 +73,4 @@ assign(actions, {
 
 
 
-  [1]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/custom_menu.png
+  [1]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/custom_palette.png

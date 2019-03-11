@@ -4,7 +4,7 @@
 
 ![此处输入图片的描述][1]
 
-import custom propertiesProviderModule
+## import custom propertiesProviderModule
 
 ```js
 // import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda';
@@ -22,7 +22,7 @@ this.bpmnModeler = new BpmnModeler({
 });
 ```
 
-set custom properties of forms
+## set custom properties of forms
 
 eg. Checkbox
 ```js

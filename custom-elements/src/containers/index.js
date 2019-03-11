@@ -35,9 +35,9 @@ export default class Bpmn extends Component {
 
   render() {
     return (
-      <div className ={styles.container}>
-        <div className= {styles.canvas} id= "canvas" />
-        <div className ={`properties-panel-parent ${styles.panel}`} id ="properties-panel" style= {{ height: '100%' }} />
+      <div className={styles.container}>
+        <div className={styles.canvas} id="canvas" />
+        <div className={`properties-panel-parent ${styles.panel}`} id="properties-panel" style={{ height: '100%' }} />
       </div>
     );
   }

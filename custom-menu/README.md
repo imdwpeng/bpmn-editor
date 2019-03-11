@@ -4,7 +4,7 @@
 
 ![此处输入图片的描述][1]
 
-import custom modeler
+## import custom modeler
 
 ```js
 // import BpmnModeler from 'bpmn-js/lib/Modeler';
@@ -22,7 +22,7 @@ this.bpmnModeler = new BpmnModeler({
 });
 ```
 
-set custom replace options
+## set custom replace options
 
 ```js
 export const START_EVENT = [

@@ -1,10 +1,10 @@
-#Custom Menu
+#Custom Elements
 
 ------
 
 ![此处输入图片的描述][1]
 
-import custom modeler
+## import custom elements
 
 ```js
 // import BpmnModeler from 'bpmn-js/lib/Modeler';
@@ -22,40 +22,13 @@ this.bpmnModeler = new BpmnModeler({
 });
 ```
 
-set custom replace options
+## set custom elements
 
-```js
-export const START_EVENT = [
-  {
-    label: 'Start Event',
-    actionName: 'replace-with-none-start',
-    className: 'bpmn-icon-start-event-none',
-    target: {
-      type: 'bpmn:StartEvent'
-    }
-  },
-  // {
-  //   label: 'Intermediate Throw Event',
-  //   actionName: 'replace-with-none-intermediate-throwing',
-  //   className: 'bpmn-icon-intermediate-event-none',
-  //   target: {
-  //     type: 'bpmn:IntermediateThrowEvent'
-  //   }
-  // },
-  {
-    label: 'End Event',
-    actionName: 'replace-with-none-end',
-    className: 'bpmn-icon-end-event-none',
-    target: {
-      type: 'bpmn:EndEvent'
-    }
-  }
-  ...
-]
-...
-```
+[CustomElements][2]: A renderer that knows how to draw custom elements
 
 
 
 
-  [1]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/custom_menu.png
+
+  [1]: https://raw.githubusercontent.com/imdwpeng/photoGallery/master/bpmn/custom_elements.png
+  [2]: https://github.com/imdwpeng/bpmn-editor/blob/master/custom-elements/src/containers/modeler
