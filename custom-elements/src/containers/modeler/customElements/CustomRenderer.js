@@ -52,15 +52,15 @@ export default function CustomRenderer(eventBus, styles) {
 
   this.getCustomShapePath = function (element) {
     const { x, y, width, height } = element;
-
-    const trianglePath = [
-      ['M', x + width / 2, y],
-      ['l', width / 2, height],
+    const shapePath = [
+      ['M', x, y],
+      ['l', width, 0],
+      ['l', 0, height],
       ['l', -width, 0],
       ['z']
     ];
 
-    return componentsToPath(trianglePath);
+    return componentsToPath(shapePath);
   };
 
   this.drawCustomConnection = function (p, element) {
@@ -132,7 +132,6 @@ CustomRenderer.prototype.drawConnection = function (p, element) {
     return this.drawCustomConnection(p, element);
   }
 };
-
 
 CustomRenderer.prototype.getConnectionPath = function (connection) {
   const { type } = connection;
