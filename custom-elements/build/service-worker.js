@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/bpmn-editor/custom-elements/build/precache-manifest.c01d17d23a977294a85232948fe7e583.js"
+  "/bpmn-editor/custom-elements/build/precache-manifest.1785a2b1462c0a4048d87d9d7c8a8c0d.js"
 );
 
 workbox.clientsClaim();
