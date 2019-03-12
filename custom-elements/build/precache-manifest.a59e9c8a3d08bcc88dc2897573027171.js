@@ -12,23 +12,23 @@ self.__precacheManifest = [
     "url": "/bpmn-editor/custom-elements/build/static/js/runtime~main.b44014e1.js"
   },
   {
-    "revision": "5f5622ee9b9b8c2b7694",
-    "url": "/bpmn-editor/custom-elements/build/static/js/main.5f5622ee.chunk.js"
+    "revision": "3eac6ec18a271dfc0bba",
+    "url": "/bpmn-editor/custom-elements/build/static/js/main.3eac6ec1.chunk.js"
   },
   {
-    "revision": "e6e1efc73337cb45b204",
-    "url": "/bpmn-editor/custom-elements/build/static/js/1.e6e1efc7.chunk.js"
+    "revision": "5b3405d7435d1d0b0d68",
+    "url": "/bpmn-editor/custom-elements/build/static/js/1.5b3405d7.chunk.js"
   },
   {
-    "revision": "5f5622ee9b9b8c2b7694",
-    "url": "/bpmn-editor/custom-elements/build/static/css/main.3e993155.chunk.css"
+    "revision": "3eac6ec18a271dfc0bba",
+    "url": "/bpmn-editor/custom-elements/build/static/css/main.796f7c08.chunk.css"
   },
   {
-    "revision": "e6e1efc73337cb45b204",
-    "url": "/bpmn-editor/custom-elements/build/static/css/1.a2ba0d39.chunk.css"
+    "revision": "5b3405d7435d1d0b0d68",
+    "url": "/bpmn-editor/custom-elements/build/static/css/1.86342c71.chunk.css"
   },
   {
-    "revision": "4c825a12bab2b9de3ca990bcffae27d8",
+    "revision": "05e352dd548471c819782c7801d2e817",
     "url": "/bpmn-editor/custom-elements/build/index.html"
   }
 ];

@@ -1,27 +1,36 @@
 import inherits from 'inherits';
-
 import BaseRenderer from 'diagram-js/lib/draw/BaseRenderer';
-
+import TextUtil from 'diagram-js/lib/util/Text';
+import { getBusinessObject, is } from 'bpmn-js/lib/util/ModelUtil';
 import {
   componentsToPath,
   createLine
 } from 'diagram-js/lib/util/RenderUtil';
-
-import { getBusinessObject } from 'bpmn-js/lib/util/ModelUtil';
-import './FigureSource/CustomElements.scss';
-
 import {
   append as svgAppend,
-  create as svgCreate
+  create as svgCreate,
+  classes as svgClasses
 } from 'tiny-svg';
 
 import FigureSource from './FigureSource';
+import './FigureSource/CustomElements.scss';
 
 /**
  * A renderer that knows how to render custom elements.
  */
 export default function CustomRenderer(eventBus, styles) {
   BaseRenderer.call(this, eventBus, 2000);
+
+  const defaultStyle = {
+    fontFamily: 'Arial, sans-serif',
+    fontSize: 12,
+    fontWeight: 'normal',
+    lineHeight: 1.2
+  };
+
+  const textUtil = new TextUtil({
+    style: defaultStyle
+  });
 
   const { computeStyle } = styles;
 
@@ -31,13 +40,24 @@ export default function CustomRenderer(eventBus, styles) {
    * @param  {string} definitionType 子节点类型
    * @param  {object} shape 样式
    */
-  this.drawCustomShape = function (parent, type, definitionType, shape) {
+  this.drawCustomShape = function (parent, element, type, definitionType, shape) {
+    const bo = getBusinessObject(element);
     const iType = type.replace('bpmn:', '');
     const iDefinitionType = definitionType.replace('bpmn:', '');
     const key = iDefinitionType ? `${iType}.${iDefinitionType}` : iType;
     const url = FigureSource[key];
+    const options = {
+      size: {
+        width: 100
+      },
+      align: 'center-middle',
+      box: element,
+      padding: 5
+    };
+
     if (!url) return;
-    const catGfx = svgCreate('image', {
+
+    const customEl = svgCreate('image', {
       x: 0,
       y: 0,
       width: shape.width,
@@ -45,9 +65,16 @@ export default function CustomRenderer(eventBus, styles) {
       href: url
     });
 
-    svgAppend(parent, catGfx);
+    svgAppend(parent, customEl);
 
-    return catGfx;
+    // 显示节点名称
+    if (!is(element, 'bpmn:Event')) {
+      const text = textUtil.createText(bo.name || '', options || {});
+      svgClasses(text).add('djs-label');
+      svgAppend(parent, text);
+    }
+
+    return customEl;
   };
 
   this.getCustomShapePath = function (element) {
@@ -104,25 +131,20 @@ CustomRenderer.prototype.drawShape = function (p, element) {
   const { type } = element;
   const bo = getBusinessObject(element);
   const definitionType = bo.eventDefinitions ? bo.eventDefinitions[0].$type : '';
-  if (type === 'bpmn:StartEvent' || type === 'bpmn:EndEvent' || type === 'bpmn:UserTask' || type === 'bpmn:ServiceTask') {
-    return this.drawCustomShape(
-      p,
-      type,
-      definitionType,
-      {
-        width: element.width,
-        height: element.height
-      }
-    );
-  }
+  return this.drawCustomShape(
+    p,
+    element,
+    type,
+    definitionType,
+    {
+      width: element.width,
+      height: element.height
+    }
+  );
 };
 
 CustomRenderer.prototype.getShapePath = function (shape) {
-  const { type } = shape;
-
-  if (type === 'bpmn:StartEvent' || type === 'bpmn:EndEvent' || type === 'bpmn:UserTask' || type === 'bpmn:ServiceTask') {
-    return this.getCustomShapePath(shape);
-  }
+  return this.getCustomShapePath(shape);
 };
 
 CustomRenderer.prototype.drawConnection = function (p, element) {
